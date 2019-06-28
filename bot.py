@@ -48,6 +48,39 @@ def w_liscie(a):
         print("Zapisałem: ", item)
     print("Koniec listy")
 
+def notatki():
+    number = int(input("Liczba notatek:"))
+    d = {}
+
+    for i in range(number):
+        note = input("Notatka: ")
+        d[i] = note
+    
+    w_slowniku(d)
+
+def w_slowniku(a):
+    for key in a:
+        print("Notatka", key+1, ": ", a[key])
+    print("Koniec notatek")
+
+def zgadnij():
+    hidden_word = "ukryte"
+    solved = False
+
+    while not solved:
+        user_word = input("Podaj słowo: ")
+
+        if hidden_word == user_word:
+            solved = True
+        else:
+            for letter in user_word:
+                print("Literka", letter, ": ", letter in hidden_word)
+        
+    print("Zgadłeś! Gratuluję!")
+    
+    
+
+
 if text == "matma":
     matma()
 
@@ -59,6 +92,12 @@ elif text == "połącz":
 
 elif text == "zakupy":
     lista_zakupow()
+
+elif text == "notatki":
+    notatki()
+
+elif text == "zgadnij":
+    zgadnij()
 
 else:
     print("Nie wiem co mam zrobić")
